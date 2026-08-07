@@ -1,19 +1,17 @@
-import sys
-from pathlib import Path
+import logging
 from typing import Set, List, Dict, Any
 
-# Ensure project root is in sys.path
-BASE_DIR = Path(__file__).resolve().parent.parent
-if str(BASE_DIR) not in sys.path:
-    sys.path.append(str(BASE_DIR))
+from vector_store.chroma_store import ChromaStore
+from llm.open_router import Generator
 
-from vector_store import ChromaStore
+logger = logging.getLogger(__name__)
 
 
 class QueryController:
 
     def __init__(self):
         self.db = ChromaStore()
+        self.generator = Generator()
 
     def get_files(self) -> Set[str]:
         """
@@ -26,16 +24,14 @@ class QueryController:
             if not metadatas:
                 return set()
 
-            files = {
+            return {
                 metadata["file_name"]
                 for metadata in metadatas
                 if metadata and "file_name" in metadata
             }
 
-            return files
-
         except Exception as e:
-            print(f"Error fetching files from database: {e}")
+            logger.error(f"Error fetching files from database: {e}", exc_info=True)
             return set()
 
     def _get_result(self, query_text: str, n_results: int = 5) -> List[Dict[str, Any]]:
@@ -73,12 +69,34 @@ class QueryController:
             return formatted_results
 
         except Exception as e:
-            print(f"Error retrieving query results: {e}")
+            logger.error(f"Error retrieving query results for '{query_text}': {e}", exc_info=True)
             return []
 
     def get_answer(self, query_text: str) -> Dict[str, Any]:
+        """
+        Retrieves matching chunks and refines the response using LLM.
+        """
+        try:
+            collected_data = self._get_result(query_text)
 
-if __name__ == '__main__':
+            if not collected_data:
+                return {
+                    "status": "failed",
+                    "message": "No relevant document chunks found in database."
+                }
+
+            return self.generator.refine_with_llm(query_text, collected_data)
+
+        except Exception as e:
+            logger.error(f"Error generating answer for query '{query_text}': {e}", exc_info=True)
+            return {
+                "status": "failed",
+                "message": str(e)
+            }
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     q = QueryController()
     print("Files in DB:", q.get_files())
-    print("Search Result Sample:", q.get_result("project details", n_results=2))
+    print("Search Result Sample:", q._get_result("project details", n_results=2))

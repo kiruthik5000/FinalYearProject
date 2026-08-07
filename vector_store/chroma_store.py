@@ -39,12 +39,14 @@ class ChromaStore:
                 continue
             
             documents.append(text)
-            metadatas.append({
+            meta = {
                 "file_name": chunk.get("file_name", "unknown"),
                 "file_type": chunk.get("file_type", "unknown"),
-                "chunk_index": chunk.get("chunk_index", idx),
-                "page_no": chunk.get("page_no", None)
-            })
+                "chunk_index": chunk.get("chunk_index", idx)
+            }
+            if chunk.get("page_no") is not None:
+                meta["page_no"] = chunk.get("page_no")
+            metadatas.append(meta)
             # Generate a unique ID using file name and chunk index
             safe_file_name = chunk.get("file_name", "unknown").replace(" ", "_")
             ids.append(f"{safe_file_name}_chunk_{chunk.get('chunk_index', idx)}")
