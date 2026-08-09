@@ -1,0 +1,472 @@
+{
+  "projectRes": {
+    "id": 1786283742640,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"name\":\"projects/6842456028393973868\",\"title\":\"Amber RAG Desktop Interface\",\"visibility\":\"PRIVATE\",\"createTime\":\"2026-08-09T13:37:36.992537Z\",\"updateTime\":\"2026-08-09T13:52:25.378695Z\",\"projectType\":\"TEXT_TO_UI_PRO\",\"thumbnailScreenshot\":{\"name\":\"projects/6842456028393973868/screens/ff21cb595929480d859a118239c85846/fileEntries/screenshot\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLuNrrwJLDDGZB_F-U9wmLM_2K4Ti_17y0cud2S2nq5Pr0_fteWVIGkh2vS5S_ttmL-1UyJZVTKBIvM0cRLwkfKC2ejI94Aj8Tu_nQUZW0SAxTfJHVJJvAbltl6GfuJ_h_xbf8YkWaDoAa01b097MJ8IlN5gwE9ye--YH_OYFQ4TF6Ac5N_ZrHxwj1K6vrM0w98NZnxSSATWLZHYF4jD6FyAVKrSEEvYjL-O6Sd0uVtQBNKhpZPBELd3g68\"},\"origin\":\"STITCH\",\"deviceType\":\"DESKTOP\",\"designTheme\":{\"colorMode\":\"DARK\",\"font\":\"HANKEN_GROTESK\",\"roundness\":\"ROUND_FOUR\",\"customColor\":\"#e8a33d\",\"headlineFont\":\"HANKEN_GROTESK\",\"bodyFont\":\"HANKEN_GROTESK\",\"labelFont\":\"JETBRAINS_MONO\",\"namedColors\":{\"background\":\"#18120c\",\"error\":\"#ffb4ab\",\"error_container\":\"#93000a\",\"inverse_on_surface\":\"#362f27\",\"inverse_primary\":\"#835400\",\"inverse_surface\":\"#ede0d5\",\"on_background\":\"#ede0d5\",\"on_error\":\"#690005\",\"on_error_container\":\"#ffdad6\",\"on_primary\":\"#462b00\",\"on_primary_container\":\"#5f3c00\",\"on_primary_fixed\":\"#2a1800\",\"on_primary_fixed_variant\":\"#643f00\",\"on_secondary\":\"#303034\",\"on_secondary_container\":\"#b6b4b9\",\"on_secondary_fixed\":\"#1b1b1f\",\"on_secondary_fixed_variant\":\"#47464b\",\"on_surface\":\"#ede0d5\",\"on_surface_variant\":\"#d6c4b0\",\"on_tertiary\":\"#00344e\",\"on_tertiary_container\":\"#00486a\",\"on_tertiary_fixed\":\"#001e2f\",\"on_tertiary_fixed_variant\":\"#004b6f\",\"outline\":\"#9e8e7c\",\"outline_variant\":\"#514536\",\"primary\":\"#ffc16c\",\"primary_container\":\"#e8a33d\",\"primary_fixed\":\"#ffddb5\",\"primary_fixed_dim\":\"#ffb956\",\"secondary\":\"#c8c5cb\",\"secondary_container\":\"#47464b\",\"secondary_fixed\":\"#e4e1e7\",\"secondary_fixed_dim\":\"#c8c5cb\",\"surface\":\"#18120c\",\"surface_bright\":\"#3f3830\",\"surface_container\":\"#251f17\",\"surface_container_high\":\"#302921\",\"surface_container_highest\":\"#3b342c\",\"surface_container_low\":\"#211b13\",\"surface_container_lowest\":\"#130d07\",\"surface_dim\":\"#18120c\",\"surface_tint\":\"#ffb956\",\"surface_variant\":\"#3b342c\",\"tertiary\":\"#99d3ff\",\"tertiary_container\":\"#63b9f3\",\"tertiary_fixed\":\"#c9e6ff\",\"tertiary_fixed_dim\":\"#8bceff\"},\"designMd\":\"---\\nname: Kinetic Syntax\\ncolors:\\n  surface: '#18120c'\\n  surface-dim: '#18120c'\\n  surface-bright: '#3f3830'\\n  surface-container-lowest: '#130d07'\\n  surface-container-low: '#211b13'\\n  surface-container: '#251f17'\\n  surface-container-high: '#302921'\\n  surface-container-highest: '#3b342c'\\n  on-surface: '#ede0d5'\\n  on-surface-variant: '#d6c4b0'\\n  inverse-surface: '#ede0d5'\\n  inverse-on-surface: '#362f27'\\n  outline: '#9e8e7c'\\n  outline-variant: '#514536'\\n  surface-tint: '#ffb956'\\n  primary: '#ffc16c'\\n  on-primary: '#462b00'\\n  primary-container: '#e8a33d'\\n  on-primary-container: '#5f3c00'\\n  inverse-primary: '#835400'\\n  secondary: '#c8c5cb'\\n  on-secondary: '#303034'\\n  secondary-container: '#47464b'\\n  on-secondary-container: '#b6b4b9'\\n  tertiary: '#99d3ff'\\n  on-tertiary: '#00344e'\\n  tertiary-container: '#63b9f3'\\n  on-tertiary-container: '#00486a'\\n  error: '#ffb4ab'\\n  on-error: '#690005'\\n  error-container: '#93000a'\\n  on-error-container: '#ffdad6'\\n  primary-fixed: '#ffddb5'\\n  primary-fixed-dim: '#ffb956'\\n  on-primary-fixed: '#2a1800'\\n  on-primary-fixed-variant: '#643f00'\\n  secondary-fixed: '#e4e1e7'\\n  secondary-fixed-dim: '#c8c5cb'\\n  on-secondary-fixed: '#1b1b1f'\\n  on-secondary-fixed-variant: '#47464b'\\n  tertiary-fixed: '#c9e6ff'\\n  tertiary-fixed-dim: '#8bceff'\\n  on-tertiary-fixed: '#001e2f'\\n  on-tertiary-fixed-variant: '#004b6f'\\n  background: '#18120c'\\n  on-background: '#ede0d5'\\n  surface-variant: '#3b342c'\\ntypography:\\n  headline-lg:\\n    fontFamily: Hanken Grotesk\\n    fontSize: 32px\\n    fontWeight: '600'\\n    lineHeight: '1.2'\\n    letterSpacing: -0.02em\\n  headline-md:\\n    fontFamily: Hanken Grotesk\\n    fontSize: 24px\\n    fontWeight: '600'\\n    lineHeight: '1.3'\\n    letterSpacing: -0.01em\\n  headline-sm:\\n    fontFamily: Hanken Grotesk\\n    fontSize: 18px\\n    fontWeight: '500'\\n    lineHeight: '1.4'\\n    letterSpacing: '0'\\n  body-lg:\\n    fontFamily: Hanken Grotesk\\n    fontSize: 16px\\n    fontWeight: '400'\\n    lineHeight: '1.6'\\n    letterSpacing: '0'\\n  body-md:\\n    fontFamily: Hanken Grotesk\\n    fontSize: 14px\\n    fontWeight: '400'\\n    lineHeight: '1.5'\\n    letterSpacing: '0'\\n  body-sm:\\n    fontFamily: Hanken Grotesk\\n    fontSize: 13px\\n    fontWeight: '400'\\n    lineHeight: '1.5'\\n    letterSpacing: '0'\\n  mono-label:\\n    fontFamily: JetBrains Mono\\n    fontSize: 12px\\n    fontWeight: '500'\\n    lineHeight: '1'\\n    letterSpacing: 0.02em\\n  mono-data:\\n    fontFamily: JetBrains Mono\\n    fontSize: 13px\\n    fontWeight: '400'\\n    lineHeight: '1.6'\\n    letterSpacing: '0'\\n  headline-lg-mobile:\\n    fontFamily: Hanken Grotesk\\n    fontSize: 26px\\n    fontWeight: '600'\\n    lineHeight: '1.2'\\nrounded:\\n  sm: 0.125rem\\n  DEFAULT: 0.25rem\\n  md: 0.375rem\\n  lg: 0.5rem\\n  xl: 0.75rem\\n  full: 9999px\\nspacing:\\n  base: 4px\\n  xs: 4px\\n  sm: 8px\\n  md: 16px\\n  lg: 24px\\n  xl: 40px\\n  container-max: 1200px\\n  gutter: 16px\\n---\\n\\n## Brand & Style\\n\\nThe design system is engineered for a high-density RAG (Retrieval-Augmented Generation) Knowledge Assistant, catering to developers and power users who prioritize speed, precision, and information density. The aesthetic is rooted in **Modern Minimalism with a Technical Edge**, drawing inspiration from high-performance developer tools and command-line interfaces.\\n\\nThe emotional response should be one of \\\"quiet competence\\\"—a focused, distraction-free environment where the UI recedes to prioritize content and code. The style leverages a deep-space dark mode, high-contrast typography, and a strict structural grid. Motion should be instantaneous and functional, favoring opacity fades and subtle transforms over bouncy easing.\\n\\n## Colors\\n\\nThis design system utilizes a sophisticated monochromatic base with a singular high-energy amber accent to denote action and focus. \\n\\n- **Background & Surface:** The hierarchy is built on three levels of luminance (#0D0D0F for the base, #17171A for containers, and #1F1F23 for hovering or floating elements).\\n- **Accents:** The Amber (#E8A33D) is reserved for primary calls to action, focus states, and meaningful highlights.\\n- **Feedback:** Semantic colors for success and error are desaturated slightly to maintain the interface's professional gravity while remaining distinct.\\n- **Interactive States:** Interactive elements should shift by one level in the surface hierarchy (e.g., a surface component shifts to surface-elevated on hover).\\n\\n## Typography\\n\\nThe typography strategy employs a strict dual-axis system:\\n1. **Sans-Serif (Hanken Grotesk):** Used for all primary interface copy, headers, and prose. It provides a clean, modern, and highly legible experience that feels \\\"engineered.\\\"\\n2. **Monospace (JetBrains Mono):** This is the functional workhorse for metadata. Use this font exclusively for citations, timestamps, file paths, code snippets, and terminal outputs.\\n\\n**Formatting Rules:**\\n- Use `mono-label` in all-caps for small tags or category labels.\\n- Line heights are kept tight to support high-density layouts.\\n- Primary text uses #EDEDEF, while secondary text (#8B8B92) is used for body copy that isn't the focal point.\\n\\n## Layout & Spacing\\n\\nThis design system uses a **4px base grid** to ensure mathematical precision and density. \\n\\n- **Layout Model:** A fluid grid with a fixed maximum width for content readability. On desktop, the assistant typically uses a two-pane layout: a narrow sidebar for thread history/metadata (280px-320px) and a wide central area for the chat/knowledge synthesis.\\n- **Density:** Elements should be tightly packed. Gutters are kept at 16px to maximize screen real estate.\\n- **Mobile Adaption:** On mobile, the sidebar collapses into a bottom sheet or a drawer, and horizontal margins reduce to 16px.\\n\\n## Elevation & Depth\\n\\nDepth in the design system is communicated through **color layering and borders** rather than traditional shadows. This creates a flat, architectural feel.\\n\\n- **The Border Rule:** All elevated elements (cards, menus, modals) must use a 1px solid border (#2A2A2E).\\n- **Z-Index Logic:**\\n    - Level 0 (Base): #0D0D0F (The main canvas).\\n    - Level 1 (Surfaces): #17171A (Sidebar, Chat input area, Cards).\\n    - Level 2 (Floating): #1F1F23 (Dropdowns, Modals, Tooltips).\\n- **Interactive Elevation:** Instead of lifting an element with a shadow on hover, change its background color to the next tier up or lighten the border color to #55555C.\\n\\n## Shapes\\n\\nThe shape language is disciplined and geometric. To maintain a \\\"tool\\\" feel, we avoid large, soft radii.\\n\\n- **Functional Elements:** Buttons, input fields, and tags use a sharp **3px radius**. This gives them a precise, industrial look.\\n- **Containers:** Cards, modals, and larger sections use a **6px radius** to provide just enough visual separation from the base canvas.\\n- **Selection Indicators:** Use vertical 2px bars on the left side of active list items or tabs to indicate focus, maintaining the linear theme.\\n\\n## Components\\n\\n- **Buttons:** \\n    - *Primary:* Solid #E8A33D with #0D0D0F text. No border.\\n    - *Secondary:* Transparent background, 1px border (#2A2A2E), #EDEDEF text.\\n- **Input Fields:** Background #17171A, 1px border #2A2A2E, 3px radius. Focus state: border-color #E8A33D. Use `mono-data` for input text.\\n- **Cards (Knowledge Fragments):** Background #17171A, 1px border #2A2A2E, 6px radius. Header within cards should use `mono-label`.\\n- **Citations/Sources:** Small inline chips using JetBrains Mono, #1F1F23 background, and #8B8B92 text. 3px radius.\\n- **Lists:** Clean rows with 1px bottom border separator (#2A2A2E). No hover background unless the item is clickable; then use #1F1F23.\\n- **Scrollbars:** Custom minimal styling. 4px width, track: transparent, thumb: #2A2A2E with a 2px radius.\\n- **Code Blocks:** Background #0D0D0F, 1px border #2A2A2E, using JetBrains Mono. Syntax highlighting should use the system's Success, Error, and Accent colors for consistency.\",\"colorVariant\":\"FIDELITY\",\"overridePrimaryColor\":\"#e8a33d\",\"overrideSecondaryColor\":\"#1f1f23\",\"spacingScale\":2,\"typography\":{\"body-lg\":{\"fontFamily\":\"Hanken Grotesk\",\"fontSize\":\"16px\",\"fontWeight\":\"400\",\"lineHeight\":\"1.6\",\"letterSpacing\":\"0\"},\"body-md\":{\"fontFamily\":\"Hanken Grotesk\",\"fontSize\":\"14px\",\"fontWeight\":\"400\",\"lineHeight\":\"1.5\",\"letterSpacing\":\"0\"},\"body-sm\":{\"fontFamily\":\"Hanken Grotesk\",\"fontSize\":\"13px\",\"fontWeight\":\"400\",\"lineHeight\":\"1.5\",\"letterSpacing\":\"0\"},\"headline-lg\":{\"fontFamily\":\"Hanken Grotesk\",\"fontSize\":\"32px\",\"fontWeight\":\"600\",\"lineHeight\":\"1.2\",\"letterSpacing\":\"-0.02em\"},\"headline-lg-mobile\":{\"fontFamily\":\"Hanken Grotesk\",\"fontSize\":\"26px\",\"fontWeight\":\"600\",\"lineHeight\":\"1.2\"},\"headline-md\":{\"fontFamily\":\"Hanken Grotesk\",\"fontSize\":\"24px\",\"fontWeight\":\"600\",\"lineHeight\":\"1.3\",\"letterSpacing\":\"-0.01em\"},\"headline-sm\":{\"fontFamily\":\"Hanken Grotesk\",\"fontSize\":\"18px\",\"fontWeight\":\"500\",\"lineHeight\":\"1.4\",\"letterSpacing\":\"0\"},\"mono-data\":{\"fontFamily\":\"JetBrains Mono\",\"fontSize\":\"13px\",\"fontWeight\":\"400\",\"lineHeight\":\"1.6\",\"letterSpacing\":\"0\"},\"mono-label\":{\"fontFamily\":\"JetBrains Mono\",\"fontSize\":\"12px\",\"fontWeight\":\"500\",\"lineHeight\":\"1\",\"letterSpacing\":\"0.02em\"}},\"spacing\":{\"base\":\"4px\",\"container-max\":\"1200px\",\"gutter\":\"16px\",\"lg\":\"24px\",\"md\":\"16px\",\"sm\":\"8px\",\"xl\":\"40px\",\"xs\":\"4px\"},\"headlineFontFamily\":\"Hanken Grotesk\",\"bodyFontFamily\":\"Hanken Grotesk\",\"labelFontFamily\":\"Jetbrains Mono\"},\"screenInstances\":[{\"id\":\"6c5b80fef8894547b037dbee51563548\",\"sourceScreen\":\"projects/6842456028393973868/screens/6c5b80fef8894547b037dbee51563548\",\"x\":-20,\"y\":2560,\"width\":1280,\"height\":1024,\"hidden\":true},{\"id\":\"728e49aea2184dc5b3e121a2ca4969e8\",\"sourceScreen\":\"projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8\",\"x\":1868,\"y\":1280,\"width\":1280,\"height\":1024},{\"id\":\"9b5c0c2e31f14b4cb2e26fc171451a9f\",\"sourceScreen\":\"projects/6842456028393973868/screens/9b5c0c2e31f14b4cb2e26fc171451a9f\",\"x\":3408,\"y\":1280,\"width\":1280,\"height\":1024},{\"id\":\"assets_ac5573f746684e33b5fd47c89c5e82ba\",\"x\":844,\"width\":960,\"height\":540,\"sourceAsset\":\"assets/ac5573f746684e33b5fd47c89c5e82ba\",\"type\":\"DESIGN_SYSTEM_INSTANCE\"},{\"id\":\"b6d33bd059bf4e77ab209ff398414668\",\"sourceScreen\":\"projects/6842456028393973868/screens/b6d33bd059bf4e77ab209ff398414668\",\"x\":5192,\"y\":1231,\"width\":1280,\"height\":1024},{\"id\":\"fc9a2761-cc68-4784-be28-5d8e50474751\",\"sourceScreen\":\"projects/6842456028393973868/screens/10674447161463484211\",\"width\":780,\"height\":1768,\"type\":\"SCREEN_INSTANCE\"},{\"id\":\"ff21cb595929480d859a118239c85846\",\"sourceScreen\":\"projects/6842456028393973868/screens/ff21cb595929480d859a118239c85846\",\"x\":1868,\"width\":1280,\"height\":1024,\"hidden\":true}],\"metadata\":{\"userRole\":\"OWNER\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "createTime": "2026-08-09T13:37:36.992537Z",
+        "designTheme": {
+          "bodyFont": "HANKEN_GROTESK",
+          "bodyFontFamily": "Hanken Grotesk",
+          "colorMode": "DARK",
+          "colorVariant": "FIDELITY",
+          "customColor": "#e8a33d",
+          "designMd": "---\nname: Kinetic Syntax\ncolors:\n  surface: '#18120c'\n  surface-dim: '#18120c'\n  surface-bright: '#3f3830'\n  surface-container-lowest: '#130d07'\n  surface-container-low: '#211b13'\n  surface-container: '#251f17'\n  surface-container-high: '#302921'\n  surface-container-highest: '#3b342c'\n  on-surface: '#ede0d5'\n  on-surface-variant: '#d6c4b0'\n  inverse-surface: '#ede0d5'\n  inverse-on-surface: '#362f27'\n  outline: '#9e8e7c'\n  outline-variant: '#514536'\n  surface-tint: '#ffb956'\n  primary: '#ffc16c'\n  on-primary: '#462b00'\n  primary-container: '#e8a33d'\n  on-primary-container: '#5f3c00'\n  inverse-primary: '#835400'\n  secondary: '#c8c5cb'\n  on-secondary: '#303034'\n  secondary-container: '#47464b'\n  on-secondary-container: '#b6b4b9'\n  tertiary: '#99d3ff'\n  on-tertiary: '#00344e'\n  tertiary-container: '#63b9f3'\n  on-tertiary-container: '#00486a'\n  error: '#ffb4ab'\n  on-error: '#690005'\n  error-container: '#93000a'\n  on-error-container: '#ffdad6'\n  primary-fixed: '#ffddb5'\n  primary-fixed-dim: '#ffb956'\n  on-primary-fixed: '#2a1800'\n  on-primary-fixed-variant: '#643f00'\n  secondary-fixed: '#e4e1e7'\n  secondary-fixed-dim: '#c8c5cb'\n  on-secondary-fixed: '#1b1b1f'\n  on-secondary-fixed-variant: '#47464b'\n  tertiary-fixed: '#c9e6ff'\n  tertiary-fixed-dim: '#8bceff'\n  on-tertiary-fixed: '#001e2f'\n  on-tertiary-fixed-variant: '#004b6f'\n  background: '#18120c'\n  on-background: '#ede0d5'\n  surface-variant: '#3b342c'\ntypography:\n  headline-lg:\n    fontFamily: Hanken Grotesk\n    fontSize: 32px\n    fontWeight: '600'\n    lineHeight: '1.2'\n    letterSpacing: -0.02em\n  headline-md:\n    fontFamily: Hanken Grotesk\n    fontSize: 24px\n    fontWeight: '600'\n    lineHeight: '1.3'\n    letterSpacing: -0.01em\n  headline-sm:\n    fontFamily: Hanken Grotesk\n    fontSize: 18px\n    fontWeight: '500'\n    lineHeight: '1.4'\n    letterSpacing: '0'\n  body-lg:\n    fontFamily: Hanken Grotesk\n    fontSize: 16px\n    fontWeight: '400'\n    lineHeight: '1.6'\n    letterSpacing: '0'\n  body-md:\n    fontFamily: Hanken Grotesk\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: '1.5'\n    letterSpacing: '0'\n  body-sm:\n    fontFamily: Hanken Grotesk\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: '1.5'\n    letterSpacing: '0'\n  mono-label:\n    fontFamily: JetBrains Mono\n    fontSize: 12px\n    fontWeight: '500'\n    lineHeight: '1'\n    letterSpacing: 0.02em\n  mono-data:\n    fontFamily: JetBrains Mono\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: '1.6'\n    letterSpacing: '0'\n  headline-lg-mobile:\n    fontFamily: Hanken Grotesk\n    fontSize: 26px\n    fontWeight: '600'\n    lineHeight: '1.2'\nrounded:\n  sm: 0.125rem\n  DEFAULT: 0.25rem\n  md: 0.375rem\n  lg: 0.5rem\n  xl: 0.75rem\n  full: 9999px\nspacing:\n  base: 4px\n  xs: 4px\n  sm: 8px\n  md: 16px\n  lg: 24px\n  xl: 40px\n  container-max: 1200px\n  gutter: 16px\n---\n\n## Brand & Style\n\nThe design system is engineered for a high-density RAG (Retrieval-Augmented Generation) Knowledge Assistant, catering to developers and power users who prioritize speed, precision, and information density. The aesthetic is rooted in **Modern Minimalism with a Technical Edge**, drawing inspiration from high-performance developer tools and command-line interfaces.\n\nThe emotional response should be one of \"quiet competence\"—a focused, distraction-free environment where the UI recedes to prioritize content and code. The style leverages a deep-space dark mode, high-contrast typography, and a strict structural grid. Motion should be instantaneous and functional, favoring opacity fades and subtle transforms over bouncy easing.\n\n## Colors\n\nThis design system utilizes a sophisticated monochromatic base with a singular high-energy amber accent to denote action and focus. \n\n- **Background & Surface:** The hierarchy is built on three levels of luminance (#0D0D0F for the base, #17171A for containers, and #1F1F23 for hovering or floating elements).\n- **Accents:** The Amber (#E8A33D) is reserved for primary calls to action, focus states, and meaningful highlights.\n- **Feedback:** Semantic colors for success and error are desaturated slightly to maintain the interface's professional gravity while remaining distinct.\n- **Interactive States:** Interactive elements should shift by one level in the surface hierarchy (e.g., a surface component shifts to surface-elevated on hover).\n\n## Typography\n\nThe typography strategy employs a strict dual-axis system:\n1. **Sans-Serif (Hanken Grotesk):** Used for all primary interface copy, headers, and prose. It provides a clean, modern, and highly legible experience that feels \"engineered.\"\n2. **Monospace (JetBrains Mono):** This is the functional workhorse for metadata. Use this font exclusively for citations, timestamps, file paths, code snippets, and terminal outputs.\n\n**Formatting Rules:**\n- Use `mono-label` in all-caps for small tags or category labels.\n- Line heights are kept tight to support high-density layouts.\n- Primary text uses #EDEDEF, while secondary text (#8B8B92) is used for body copy that isn't the focal point.\n\n## Layout & Spacing\n\nThis design system uses a **4px base grid** to ensure mathematical precision and density. \n\n- **Layout Model:** A fluid grid with a fixed maximum width for content readability. On desktop, the assistant typically uses a two-pane layout: a narrow sidebar for thread history/metadata (280px-320px) and a wide central area for the chat/knowledge synthesis.\n- **Density:** Elements should be tightly packed. Gutters are kept at 16px to maximize screen real estate.\n- **Mobile Adaption:** On mobile, the sidebar collapses into a bottom sheet or a drawer, and horizontal margins reduce to 16px.\n\n## Elevation & Depth\n\nDepth in the design system is communicated through **color layering and borders** rather than traditional shadows. This creates a flat, architectural feel.\n\n- **The Border Rule:** All elevated elements (cards, menus, modals) must use a 1px solid border (#2A2A2E).\n- **Z-Index Logic:**\n    - Level 0 (Base): #0D0D0F (The main canvas).\n    - Level 1 (Surfaces): #17171A (Sidebar, Chat input area, Cards).\n    - Level 2 (Floating): #1F1F23 (Dropdowns, Modals, Tooltips).\n- **Interactive Elevation:** Instead of lifting an element with a shadow on hover, change its background color to the next tier up or lighten the border color to #55555C.\n\n## Shapes\n\nThe shape language is disciplined and geometric. To maintain a \"tool\" feel, we avoid large, soft radii.\n\n- **Functional Elements:** Buttons, input fields, and tags use a sharp **3px radius**. This gives them a precise, industrial look.\n- **Containers:** Cards, modals, and larger sections use a **6px radius** to provide just enough visual separation from the base canvas.\n- **Selection Indicators:** Use vertical 2px bars on the left side of active list items or tabs to indicate focus, maintaining the linear theme.\n\n## Components\n\n- **Buttons:** \n    - *Primary:* Solid #E8A33D with #0D0D0F text. No border.\n    - *Secondary:* Transparent background, 1px border (#2A2A2E), #EDEDEF text.\n- **Input Fields:** Background #17171A, 1px border #2A2A2E, 3px radius. Focus state: border-color #E8A33D. Use `mono-data` for input text.\n- **Cards (Knowledge Fragments):** Background #17171A, 1px border #2A2A2E, 6px radius. Header within cards should use `mono-label`.\n- **Citations/Sources:** Small inline chips using JetBrains Mono, #1F1F23 background, and #8B8B92 text. 3px radius.\n- **Lists:** Clean rows with 1px bottom border separator (#2A2A2E). No hover background unless the item is clickable; then use #1F1F23.\n- **Scrollbars:** Custom minimal styling. 4px width, track: transparent, thumb: #2A2A2E with a 2px radius.\n- **Code Blocks:** Background #0D0D0F, 1px border #2A2A2E, using JetBrains Mono. Syntax highlighting should use the system's Success, Error, and Accent colors for consistency.",
+          "font": "HANKEN_GROTESK",
+          "headlineFont": "HANKEN_GROTESK",
+          "headlineFontFamily": "Hanken Grotesk",
+          "labelFont": "JETBRAINS_MONO",
+          "labelFontFamily": "Jetbrains Mono",
+          "namedColors": {
+            "background": "#18120c",
+            "error": "#ffb4ab",
+            "error_container": "#93000a",
+            "inverse_on_surface": "#362f27",
+            "inverse_primary": "#835400",
+            "inverse_surface": "#ede0d5",
+            "on_background": "#ede0d5",
+            "on_error": "#690005",
+            "on_error_container": "#ffdad6",
+            "on_primary": "#462b00",
+            "on_primary_container": "#5f3c00",
+            "on_primary_fixed": "#2a1800",
+            "on_primary_fixed_variant": "#643f00",
+            "on_secondary": "#303034",
+            "on_secondary_container": "#b6b4b9",
+            "on_secondary_fixed": "#1b1b1f",
+            "on_secondary_fixed_variant": "#47464b",
+            "on_surface": "#ede0d5",
+            "on_surface_variant": "#d6c4b0",
+            "on_tertiary": "#00344e",
+            "on_tertiary_container": "#00486a",
+            "on_tertiary_fixed": "#001e2f",
+            "on_tertiary_fixed_variant": "#004b6f",
+            "outline": "#9e8e7c",
+            "outline_variant": "#514536",
+            "primary": "#ffc16c",
+            "primary_container": "#e8a33d",
+            "primary_fixed": "#ffddb5",
+            "primary_fixed_dim": "#ffb956",
+            "secondary": "#c8c5cb",
+            "secondary_container": "#47464b",
+            "secondary_fixed": "#e4e1e7",
+            "secondary_fixed_dim": "#c8c5cb",
+            "surface": "#18120c",
+            "surface_bright": "#3f3830",
+            "surface_container": "#251f17",
+            "surface_container_high": "#302921",
+            "surface_container_highest": "#3b342c",
+            "surface_container_low": "#211b13",
+            "surface_container_lowest": "#130d07",
+            "surface_dim": "#18120c",
+            "surface_tint": "#ffb956",
+            "surface_variant": "#3b342c",
+            "tertiary": "#99d3ff",
+            "tertiary_container": "#63b9f3",
+            "tertiary_fixed": "#c9e6ff",
+            "tertiary_fixed_dim": "#8bceff"
+          },
+          "overridePrimaryColor": "#e8a33d",
+          "overrideSecondaryColor": "#1f1f23",
+          "roundness": "ROUND_FOUR",
+          "spacing": {
+            "base": "4px",
+            "container-max": "1200px",
+            "gutter": "16px",
+            "lg": "24px",
+            "md": "16px",
+            "sm": "8px",
+            "xl": "40px",
+            "xs": "4px"
+          },
+          "spacingScale": 2,
+          "typography": {
+            "body-lg": {
+              "fontFamily": "Hanken Grotesk",
+              "fontSize": "16px",
+              "fontWeight": "400",
+              "letterSpacing": "0",
+              "lineHeight": "1.6"
+            },
+            "body-md": {
+              "fontFamily": "Hanken Grotesk",
+              "fontSize": "14px",
+              "fontWeight": "400",
+              "letterSpacing": "0",
+              "lineHeight": "1.5"
+            },
+            "body-sm": {
+              "fontFamily": "Hanken Grotesk",
+              "fontSize": "13px",
+              "fontWeight": "400",
+              "letterSpacing": "0",
+              "lineHeight": "1.5"
+            },
+            "headline-lg": {
+              "fontFamily": "Hanken Grotesk",
+              "fontSize": "32px",
+              "fontWeight": "600",
+              "letterSpacing": "-0.02em",
+              "lineHeight": "1.2"
+            },
+            "headline-lg-mobile": {
+              "fontFamily": "Hanken Grotesk",
+              "fontSize": "26px",
+              "fontWeight": "600",
+              "lineHeight": "1.2"
+            },
+            "headline-md": {
+              "fontFamily": "Hanken Grotesk",
+              "fontSize": "24px",
+              "fontWeight": "600",
+              "letterSpacing": "-0.01em",
+              "lineHeight": "1.3"
+            },
+            "headline-sm": {
+              "fontFamily": "Hanken Grotesk",
+              "fontSize": "18px",
+              "fontWeight": "500",
+              "letterSpacing": "0",
+              "lineHeight": "1.4"
+            },
+            "mono-data": {
+              "fontFamily": "JetBrains Mono",
+              "fontSize": "13px",
+              "fontWeight": "400",
+              "letterSpacing": "0",
+              "lineHeight": "1.6"
+            },
+            "mono-label": {
+              "fontFamily": "JetBrains Mono",
+              "fontSize": "12px",
+              "fontWeight": "500",
+              "letterSpacing": "0.02em",
+              "lineHeight": "1"
+            }
+          }
+        },
+        "deviceType": "DESKTOP",
+        "metadata": {
+          "userRole": "OWNER"
+        },
+        "name": "projects/6842456028393973868",
+        "origin": "STITCH",
+        "projectType": "TEXT_TO_UI_PRO",
+        "screenInstances": [
+          {
+            "height": 1024,
+            "hidden": true,
+            "id": "6c5b80fef8894547b037dbee51563548",
+            "sourceScreen": "projects/6842456028393973868/screens/6c5b80fef8894547b037dbee51563548",
+            "width": 1280,
+            "x": -20,
+            "y": 2560
+          },
+          {
+            "height": 1024,
+            "id": "728e49aea2184dc5b3e121a2ca4969e8",
+            "sourceScreen": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8",
+            "width": 1280,
+            "x": 1868,
+            "y": 1280
+          },
+          {
+            "height": 1024,
+            "id": "9b5c0c2e31f14b4cb2e26fc171451a9f",
+            "sourceScreen": "projects/6842456028393973868/screens/9b5c0c2e31f14b4cb2e26fc171451a9f",
+            "width": 1280,
+            "x": 3408,
+            "y": 1280
+          },
+          {
+            "height": 540,
+            "id": "assets_ac5573f746684e33b5fd47c89c5e82ba",
+            "sourceAsset": "assets/ac5573f746684e33b5fd47c89c5e82ba",
+            "type": "DESIGN_SYSTEM_INSTANCE",
+            "width": 960,
+            "x": 844
+          },
+          {
+            "height": 1024,
+            "id": "b6d33bd059bf4e77ab209ff398414668",
+            "sourceScreen": "projects/6842456028393973868/screens/b6d33bd059bf4e77ab209ff398414668",
+            "width": 1280,
+            "x": 5192,
+            "y": 1231
+          },
+          {
+            "height": 1768,
+            "id": "fc9a2761-cc68-4784-be28-5d8e50474751",
+            "sourceScreen": "projects/6842456028393973868/screens/10674447161463484211",
+            "type": "SCREEN_INSTANCE",
+            "width": 780
+          },
+          {
+            "height": 1024,
+            "hidden": true,
+            "id": "ff21cb595929480d859a118239c85846",
+            "sourceScreen": "projects/6842456028393973868/screens/ff21cb595929480d859a118239c85846",
+            "width": 1280,
+            "x": 1868
+          }
+        ],
+        "thumbnailScreenshot": {
+          "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLuNrrwJLDDGZB_F-U9wmLM_2K4Ti_17y0cud2S2nq5Pr0_fteWVIGkh2vS5S_ttmL-1UyJZVTKBIvM0cRLwkfKC2ejI94Aj8Tu_nQUZW0SAxTfJHVJJvAbltl6GfuJ_h_xbf8YkWaDoAa01b097MJ8IlN5gwE9ye--YH_OYFQ4TF6Ac5N_ZrHxwj1K6vrM0w98NZnxSSATWLZHYF4jD6FyAVKrSEEvYjL-O6Sd0uVtQBNKhpZPBELd3g68",
+          "name": "projects/6842456028393973868/screens/ff21cb595929480d859a118239c85846/fileEntries/screenshot"
+        },
+        "title": "Amber RAG Desktop Interface",
+        "updateTime": "2026-08-09T13:52:25.378695Z",
+        "visibility": "PRIVATE"
+      }
+    }
+  },
+  "screensRes": {
+    "id": 1786283745170,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"screens\":[{\"name\":\"projects/6842456028393973868/screens/10674447161463484211\",\"title\":\"API_DOCUMENTATION.md\",\"screenshot\":{},\"htmlCode\":{\"name\":\"projects/6842456028393973868/files/10674447161463483534\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKNARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmgKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NTg5ZDU3NWI4OGI5MDkyNWM0MWVmMDA0OWE5YRILEgcQyrKb0M4ZGAGSASMKCnByb2plY3RfaWQSFUITNjg0MjQ1NjAyODM5Mzk3Mzg2OA&filename=&opi=89354086\",\"mimeType\":\"text/markdown\"},\"width\":\"780\",\"height\":\"1768\"},{\"name\":\"projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8\",\"title\":\"RAG Assistant - Light Theme\",\"screenshot\":{\"name\":\"projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/screenshot\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLtBmYx50nMF21bt-mHl_KceovgDUqMK9zIWzC3wi6imT614KP-tRzx9p5o_VBukbWwsDyHYvuoiZ951rgu-BTnstdWgyPEIryQZuBxXhvXHdKu3Zf6RdgAEaab5PirskND-CI__Xcgnx3luOkwakIddPn-hS90JOU96Whz_W5WSvEPw6q5AqJYOYHVksx0IU5Gpfr42IWhBIU_6YwIRe0MYjkzZoP0PsLWVipC7goR4g4Y6T2pBo0xvIDM\"},\"htmlCode\":{\"name\":\"projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/html\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkNjBkMGQ1MjEwMWE2MDNlOGQ2MzliMGE5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2048\",\"deviceType\":\"DESKTOP\"},{\"name\":\"projects/6842456028393973868/screens/b6d33bd059bf4e77ab209ff398414668\",\"title\":\"Login & Sign-Up - Smart RAG\",\"screenshot\":{\"name\":\"projects/6842456028393973868/files/15580804958590175138\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLv0US4NeU4C0e014gYyDms60YKDGqUaW2BjfyiItwUFEZWuDnl_4SknodVYJXrJ5XmD-d6jX3FdVrvkat5CSRNG4ThT8ihCHhT7GyCUXaRCaT7alUX7VHg53pnAFugfOuE5fmrgiPZjHEwAamsLS6uMdyAJMhjOZGtMxHduePLLIDBHPW-YtJWaXSOqz03spcYlledPmgEoWGCivSX6XhI7habnNd32sG8Tp2NaBLOi6P4t0rcFIga7uyM\"},\"htmlCode\":{\"name\":\"projects/6842456028393973868/files/574198962137169876\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGI5YTcxY2EwMzgzOGNkM2EyMzNiNjRkEgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2048\",\"deviceType\":\"DESKTOP\"},{\"name\":\"projects/6842456028393973868/screens/9b5c0c2e31f14b4cb2e26fc171451a9f\",\"title\":\"Login - Smart RAG (Light)\",\"screenshot\":{\"name\":\"projects/6842456028393973868/files/15691890247256578883\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLuBMrrTOZav-mJBi3cAQoxzjam7Gv9ylRNo5qkH8UN4dYsITHVDfqENoSiD6uYZ7-wCE8peulfl_NdARs4yvqO45et_u_oGaHzCXCkzp6ukXe4CsfZ5rrtujB4wom5deTi3CmKt_6XYQ69dMqf-4Xf9hnjSTKYtjVqSXIp4EE1mSa2CWsMivF78IJIbi_XvkTos9xNw6smWUFlyQUp3uggTD6REKFGRw1FFRKGn1TfzrJNrNGoSTJeU8A\"},\"htmlCode\":{\"name\":\"projects/6842456028393973868/files/5718131783691472242\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGJkMmUzOTkwMmE5ODA1YzFiMDc1OTI5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2048\",\"deviceType\":\"DESKTOP\"}]}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "screens": [
+          {
+            "height": "1768",
+            "htmlCode": {
+              "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKNARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmgKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NTg5ZDU3NWI4OGI5MDkyNWM0MWVmMDA0OWE5YRILEgcQyrKb0M4ZGAGSASMKCnByb2plY3RfaWQSFUITNjg0MjQ1NjAyODM5Mzk3Mzg2OA&filename=&opi=89354086",
+              "mimeType": "text/markdown",
+              "name": "projects/6842456028393973868/files/10674447161463483534"
+            },
+            "name": "projects/6842456028393973868/screens/10674447161463484211",
+            "screenshot": {},
+            "title": "API_DOCUMENTATION.md",
+            "width": "780"
+          },
+          {
+            "deviceType": "DESKTOP",
+            "height": "2048",
+            "htmlCode": {
+              "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkNjBkMGQ1MjEwMWE2MDNlOGQ2MzliMGE5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+              "mimeType": "text/html",
+              "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/html"
+            },
+            "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8",
+            "screenshot": {
+              "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLtBmYx50nMF21bt-mHl_KceovgDUqMK9zIWzC3wi6imT614KP-tRzx9p5o_VBukbWwsDyHYvuoiZ951rgu-BTnstdWgyPEIryQZuBxXhvXHdKu3Zf6RdgAEaab5PirskND-CI__Xcgnx3luOkwakIddPn-hS90JOU96Whz_W5WSvEPw6q5AqJYOYHVksx0IU5Gpfr42IWhBIU_6YwIRe0MYjkzZoP0PsLWVipC7goR4g4Y6T2pBo0xvIDM",
+              "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/screenshot"
+            },
+            "title": "RAG Assistant - Light Theme",
+            "width": "2560"
+          },
+          {
+            "deviceType": "DESKTOP",
+            "height": "2048",
+            "htmlCode": {
+              "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGI5YTcxY2EwMzgzOGNkM2EyMzNiNjRkEgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+              "mimeType": "text/html",
+              "name": "projects/6842456028393973868/files/574198962137169876"
+            },
+            "name": "projects/6842456028393973868/screens/b6d33bd059bf4e77ab209ff398414668",
+            "screenshot": {
+              "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLv0US4NeU4C0e014gYyDms60YKDGqUaW2BjfyiItwUFEZWuDnl_4SknodVYJXrJ5XmD-d6jX3FdVrvkat5CSRNG4ThT8ihCHhT7GyCUXaRCaT7alUX7VHg53pnAFugfOuE5fmrgiPZjHEwAamsLS6uMdyAJMhjOZGtMxHduePLLIDBHPW-YtJWaXSOqz03spcYlledPmgEoWGCivSX6XhI7habnNd32sG8Tp2NaBLOi6P4t0rcFIga7uyM",
+              "name": "projects/6842456028393973868/files/15580804958590175138"
+            },
+            "title": "Login & Sign-Up - Smart RAG",
+            "width": "2560"
+          },
+          {
+            "deviceType": "DESKTOP",
+            "height": "2048",
+            "htmlCode": {
+              "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGJkMmUzOTkwMmE5ODA1YzFiMDc1OTI5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+              "mimeType": "text/html",
+              "name": "projects/6842456028393973868/files/5718131783691472242"
+            },
+            "name": "projects/6842456028393973868/screens/9b5c0c2e31f14b4cb2e26fc171451a9f",
+            "screenshot": {
+              "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLuBMrrTOZav-mJBi3cAQoxzjam7Gv9ylRNo5qkH8UN4dYsITHVDfqENoSiD6uYZ7-wCE8peulfl_NdARs4yvqO45et_u_oGaHzCXCkzp6ukXe4CsfZ5rrtujB4wom5deTi3CmKt_6XYQ69dMqf-4Xf9hnjSTKYtjVqSXIp4EE1mSa2CWsMivF78IJIbi_XvkTos9xNw6smWUFlyQUp3uggTD6REKFGRw1FFRKGn1TfzrJNrNGoSTJeU8A",
+              "name": "projects/6842456028393973868/files/15691890247256578883"
+            },
+            "title": "Login - Smart RAG (Light)",
+            "width": "2560"
+          }
+        ]
+      }
+    }
+  },
+  "screenDetails": [
+    {
+      "screen": {
+        "name": "projects/6842456028393973868/screens/10674447161463484211",
+        "title": "API_DOCUMENTATION.md",
+        "screenshot": {},
+        "htmlCode": {
+          "name": "projects/6842456028393973868/files/10674447161463483534",
+          "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBKNARIhYXBwX2NvbXBhbmlvbl91c2VyX3VwbG9hZGVkX2ZpbGVzGmgKM3VzZXJfdXBsb2FkZWRfaHRtbF8wMDA2NTg5ZDU3NWI4OGI5MDkyNWM0MWVmMDA0OWE5YRILEgcQyrKb0M4ZGAGSASMKCnByb2plY3RfaWQSFUITNjg0MjQ1NjAyODM5Mzk3Mzg2OA&filename=&opi=89354086",
+          "mimeType": "text/markdown"
+        },
+        "width": "780",
+        "height": "1768"
+      },
+      "detail": {
+        "id": 1786283746827,
+        "jsonrpc": "2.0",
+        "result": {
+          "content": [
+            {
+              "text": "Request contains an invalid argument.",
+              "type": "text"
+            }
+          ],
+          "isError": true
+        }
+      }
+    },
+    {
+      "screen": {
+        "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8",
+        "title": "RAG Assistant - Light Theme",
+        "screenshot": {
+          "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/screenshot",
+          "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLtBmYx50nMF21bt-mHl_KceovgDUqMK9zIWzC3wi6imT614KP-tRzx9p5o_VBukbWwsDyHYvuoiZ951rgu-BTnstdWgyPEIryQZuBxXhvXHdKu3Zf6RdgAEaab5PirskND-CI__Xcgnx3luOkwakIddPn-hS90JOU96Whz_W5WSvEPw6q5AqJYOYHVksx0IU5Gpfr42IWhBIU_6YwIRe0MYjkzZoP0PsLWVipC7goR4g4Y6T2pBo0xvIDM"
+        },
+        "htmlCode": {
+          "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/html",
+          "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkNjBkMGQ1MjEwMWE2MDNlOGQ2MzliMGE5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+          "mimeType": "text/html"
+        },
+        "width": "2560",
+        "height": "2048",
+        "deviceType": "DESKTOP"
+      },
+      "detail": {
+        "id": 1786283748799,
+        "jsonrpc": "2.0",
+        "result": {
+          "content": [
+            {
+              "text": "{\"name\":\"projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8\",\"title\":\"RAG Assistant - Light Theme\",\"screenshot\":{\"name\":\"projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/screenshot\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLtBmYx50nMF21bt-mHl_KceovgDUqMK9zIWzC3wi6imT614KP-tRzx9p5o_VBukbWwsDyHYvuoiZ951rgu-BTnstdWgyPEIryQZuBxXhvXHdKu3Zf6RdgAEaab5PirskND-CI__Xcgnx3luOkwakIddPn-hS90JOU96Whz_W5WSvEPw6q5AqJYOYHVksx0IU5Gpfr42IWhBIU_6YwIRe0MYjkzZoP0PsLWVipC7goR4g4Y6T2pBo0xvIDM\"},\"htmlCode\":{\"name\":\"projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/html\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkNjBkMGQ1MjEwMWE2MDNlOGQ2MzliMGE5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2048\",\"deviceType\":\"DESKTOP\"}",
+              "type": "text"
+            }
+          ],
+          "structuredContent": {
+            "deviceType": "DESKTOP",
+            "height": "2048",
+            "htmlCode": {
+              "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkNjBkMGQ1MjEwMWE2MDNlOGQ2MzliMGE5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+              "mimeType": "text/html",
+              "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/html"
+            },
+            "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8",
+            "screenshot": {
+              "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLtBmYx50nMF21bt-mHl_KceovgDUqMK9zIWzC3wi6imT614KP-tRzx9p5o_VBukbWwsDyHYvuoiZ951rgu-BTnstdWgyPEIryQZuBxXhvXHdKu3Zf6RdgAEaab5PirskND-CI__Xcgnx3luOkwakIddPn-hS90JOU96Whz_W5WSvEPw6q5AqJYOYHVksx0IU5Gpfr42IWhBIU_6YwIRe0MYjkzZoP0PsLWVipC7goR4g4Y6T2pBo0xvIDM",
+              "name": "projects/6842456028393973868/screens/728e49aea2184dc5b3e121a2ca4969e8/fileEntries/screenshot"
+            },
+            "title": "RAG Assistant - Light Theme",
+            "width": "2560"
+          }
+        }
+      }
+    },
+    {
+      "screen": {
+        "name": "projects/6842456028393973868/screens/b6d33bd059bf4e77ab209ff398414668",
+        "title": "Login & Sign-Up - Smart RAG",
+        "screenshot": {
+          "name": "projects/6842456028393973868/files/15580804958590175138",
+          "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLv0US4NeU4C0e014gYyDms60YKDGqUaW2BjfyiItwUFEZWuDnl_4SknodVYJXrJ5XmD-d6jX3FdVrvkat5CSRNG4ThT8ihCHhT7GyCUXaRCaT7alUX7VHg53pnAFugfOuE5fmrgiPZjHEwAamsLS6uMdyAJMhjOZGtMxHduePLLIDBHPW-YtJWaXSOqz03spcYlledPmgEoWGCivSX6XhI7habnNd32sG8Tp2NaBLOi6P4t0rcFIga7uyM"
+        },
+        "htmlCode": {
+          "name": "projects/6842456028393973868/files/574198962137169876",
+          "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGI5YTcxY2EwMzgzOGNkM2EyMzNiNjRkEgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+          "mimeType": "text/html"
+        },
+        "width": "2560",
+        "height": "2048",
+        "deviceType": "DESKTOP"
+      },
+      "detail": {
+        "id": 1786283750633,
+        "jsonrpc": "2.0",
+        "result": {
+          "content": [
+            {
+              "text": "{\"name\":\"projects/6842456028393973868/screens/b6d33bd059bf4e77ab209ff398414668\",\"title\":\"Login & Sign-Up - Smart RAG\",\"screenshot\":{\"name\":\"projects/6842456028393973868/files/15580804958590175138\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLv0US4NeU4C0e014gYyDms60YKDGqUaW2BjfyiItwUFEZWuDnl_4SknodVYJXrJ5XmD-d6jX3FdVrvkat5CSRNG4ThT8ihCHhT7GyCUXaRCaT7alUX7VHg53pnAFugfOuE5fmrgiPZjHEwAamsLS6uMdyAJMhjOZGtMxHduePLLIDBHPW-YtJWaXSOqz03spcYlledPmgEoWGCivSX6XhI7habnNd32sG8Tp2NaBLOi6P4t0rcFIga7uyM\"},\"htmlCode\":{\"name\":\"projects/6842456028393973868/files/574198962137169876\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGI5YTcxY2EwMzgzOGNkM2EyMzNiNjRkEgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2048\",\"deviceType\":\"DESKTOP\"}",
+              "type": "text"
+            }
+          ],
+          "structuredContent": {
+            "deviceType": "DESKTOP",
+            "height": "2048",
+            "htmlCode": {
+              "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGI5YTcxY2EwMzgzOGNkM2EyMzNiNjRkEgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+              "mimeType": "text/html",
+              "name": "projects/6842456028393973868/files/574198962137169876"
+            },
+            "name": "projects/6842456028393973868/screens/b6d33bd059bf4e77ab209ff398414668",
+            "screenshot": {
+              "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLv0US4NeU4C0e014gYyDms60YKDGqUaW2BjfyiItwUFEZWuDnl_4SknodVYJXrJ5XmD-d6jX3FdVrvkat5CSRNG4ThT8ihCHhT7GyCUXaRCaT7alUX7VHg53pnAFugfOuE5fmrgiPZjHEwAamsLS6uMdyAJMhjOZGtMxHduePLLIDBHPW-YtJWaXSOqz03spcYlledPmgEoWGCivSX6XhI7habnNd32sG8Tp2NaBLOi6P4t0rcFIga7uyM",
+              "name": "projects/6842456028393973868/files/15580804958590175138"
+            },
+            "title": "Login & Sign-Up - Smart RAG",
+            "width": "2560"
+          }
+        }
+      }
+    },
+    {
+      "screen": {
+        "name": "projects/6842456028393973868/screens/9b5c0c2e31f14b4cb2e26fc171451a9f",
+        "title": "Login - Smart RAG (Light)",
+        "screenshot": {
+          "name": "projects/6842456028393973868/files/15691890247256578883",
+          "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLuBMrrTOZav-mJBi3cAQoxzjam7Gv9ylRNo5qkH8UN4dYsITHVDfqENoSiD6uYZ7-wCE8peulfl_NdARs4yvqO45et_u_oGaHzCXCkzp6ukXe4CsfZ5rrtujB4wom5deTi3CmKt_6XYQ69dMqf-4Xf9hnjSTKYtjVqSXIp4EE1mSa2CWsMivF78IJIbi_XvkTos9xNw6smWUFlyQUp3uggTD6REKFGRw1FFRKGn1TfzrJNrNGoSTJeU8A"
+        },
+        "htmlCode": {
+          "name": "projects/6842456028393973868/files/5718131783691472242",
+          "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGJkMmUzOTkwMmE5ODA1YzFiMDc1OTI5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+          "mimeType": "text/html"
+        },
+        "width": "2560",
+        "height": "2048",
+        "deviceType": "DESKTOP"
+      },
+      "detail": {
+        "id": 1786283752538,
+        "jsonrpc": "2.0",
+        "result": {
+          "content": [
+            {
+              "text": "{\"name\":\"projects/6842456028393973868/screens/9b5c0c2e31f14b4cb2e26fc171451a9f\",\"title\":\"Login - Smart RAG (Light)\",\"screenshot\":{\"name\":\"projects/6842456028393973868/files/15691890247256578883\",\"downloadUrl\":\"https://lh3.googleusercontent.com/aida/AP1WRLuBMrrTOZav-mJBi3cAQoxzjam7Gv9ylRNo5qkH8UN4dYsITHVDfqENoSiD6uYZ7-wCE8peulfl_NdARs4yvqO45et_u_oGaHzCXCkzp6ukXe4CsfZ5rrtujB4wom5deTi3CmKt_6XYQ69dMqf-4Xf9hnjSTKYtjVqSXIp4EE1mSa2CWsMivF78IJIbi_XvkTos9xNw6smWUFlyQUp3uggTD6REKFGRw1FFRKGn1TfzrJNrNGoSTJeU8A\"},\"htmlCode\":{\"name\":\"projects/6842456028393973868/files/5718131783691472242\",\"downloadUrl\":\"https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGJkMmUzOTkwMmE5ODA1YzFiMDc1OTI5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086\",\"mimeType\":\"text/html\"},\"width\":\"2560\",\"height\":\"2048\",\"deviceType\":\"DESKTOP\"}",
+              "type": "text"
+            }
+          ],
+          "structuredContent": {
+            "deviceType": "DESKTOP",
+            "height": "2048",
+            "htmlCode": {
+              "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzAwMDY1ODlkOGJkMmUzOTkwMmE5ODA1YzFiMDc1OTI5EgsSBxDKspvQzhkYAZIBIwoKcHJvamVjdF9pZBIVQhM2ODQyNDU2MDI4MzkzOTczODY4&filename=&opi=89354086",
+              "mimeType": "text/html",
+              "name": "projects/6842456028393973868/files/5718131783691472242"
+            },
+            "name": "projects/6842456028393973868/screens/9b5c0c2e31f14b4cb2e26fc171451a9f",
+            "screenshot": {
+              "downloadUrl": "https://lh3.googleusercontent.com/aida/AP1WRLuBMrrTOZav-mJBi3cAQoxzjam7Gv9ylRNo5qkH8UN4dYsITHVDfqENoSiD6uYZ7-wCE8peulfl_NdARs4yvqO45et_u_oGaHzCXCkzp6ukXe4CsfZ5rrtujB4wom5deTi3CmKt_6XYQ69dMqf-4Xf9hnjSTKYtjVqSXIp4EE1mSa2CWsMivF78IJIbi_XvkTos9xNw6smWUFlyQUp3uggTD6REKFGRw1FFRKGn1TfzrJNrNGoSTJeU8A",
+              "name": "projects/6842456028393973868/files/15691890247256578883"
+            },
+            "title": "Login - Smart RAG (Light)",
+            "width": "2560"
+          }
+        }
+      }
+    }
+  ]
+}

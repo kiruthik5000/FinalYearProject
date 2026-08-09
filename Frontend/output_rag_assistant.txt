@@ -1,0 +1,340 @@
+=== API DOCUMENTATION CONTENT ===
+# RAG Application - API Documentation
+
+This API documentation serves as the exact specification contract for frontend integration and UI development for the Retrieval-Augmented Generation (RAG) backend service.
+
+---
+
+## 1. Overview & Setup
+
+- **Backend Framework:** FastAPI (Python)
+- **Base URL:** `http://localhost:8000` (default)
+- **Content Types:** `application/json`, `multipart/form-data`
+- **CORS:** Enabled for all origins (`*`)
+
+---
+
+## 2. API Endpoints
+
+### 2.1 System Health Check
+Check whether the backend API service and database connections are active.
+
+- **Method:** `GET`
+- **Endpoint:** `/`
+- **Headers:** None
+
+#### Response `200 OK`
+```json
+{
+  "status": "healthy",
+  "message": "Service is running"
+}
+```
+
+---
+
+### 2.2 Get Ingested Files List
+Retrieves all unique source files and web links currently stored in the ChromaDB vector database.
+
+- **Method:** `GET`
+- **Endpoint:** `/api/files`
+- **Headers:** None
+
+#### Response `200 OK`
+```json
+{
+  "status": "success",
+  "files": [
+    "research_paper.pdf",
+    "project_notes.txt",
+    "https://docs.python.org/3/"
+  ]
+}
+```
+
+---
+
+### 2.3 RAG Chat / Query
+Submits a user query, retrieves relevant document chunks from ChromaDB, and generates a context-aware answer via LLM.
+
+- **Method:** `POST`
+- **Endpoint:** `/api/chat`
+- **Headers:** `Content-Type: application/json`
+
+#### Request Body
+```json
+{
+  "query": "What are the main findings in the uploaded document?"
+}
+```
+*Note: Payload supports fallback fields (`prompt`, `message`, `text`) if `query` is omitted.*
+
+#### Response `200 OK` (Answer Found)
+```json
+{
+  "status": "success",
+  "file_name": "research_paper.pdf",
+  "page_number": "3",
+  "chunk_id": 12,
+  "message": "The document concludes that LLM augmentation improves accuracy by 40%."
+}
+```
+
+#### Response `200 OK` (No Relevant Context Found)
+```json
+{
+  "status": "failed",
+  "message": "Cannot answer the question because the provided content is irrelevant."
+}
+```
+
+---
+
+### 2.4 Upload Document File
+Uploads a document file to the backend, saves it to disk, and triggers asynchronous background ingestion into vector storage.
+
+- **Method:** `POST`
+- **Endpoint:** `/api/upload` *(Alias: `/api/files/upload`)*
+- **Headers:** `Content-Type: multipart/form-data`
+- **Allowed Extensions:** `.pdf`, `.doc`, `.docx`, `.md`, `.txt`, `.text`
+
+#### Request Body (Form Data)
+| Key | Type | Required | Description |
+|---|---|---|---|
+| `file` | File | Yes | Document file to be ingested |
+
+#### Response `200 OK`
+```json
+{
+  "status": "success",
+  "message": "File 'research_paper.pdf' uploaded successfully. Async ingestion process started.",
+  "filename": "research_paper.pdf"
+}
+```
+
+#### Response `400 Bad Request` (Invalid Extension)
+```json
+{
+  "detail": "Invalid file extension '.png'. Allowed file types are: [doc, md, text, pdf]."
+}
+```
+
+---
+
+### 2.5 Ingest Website URL
+Submits a web URL for web scraping and asynchronous background vector ingestion.
+
+- **Method:** `POST`
+- **Endpoint:** `/api/url` *(Alias: `/api/url/upload`)*
+- **Headers:** `Content-Type: application/json`
+
+#### Request Body
+```json
+{
+  "url": "https://en.wikipedia.org/wiki/Artificial_intelligence"
+}
+```
+*Note: Payload supports fallback fields (`link`, `website`) if `url` is omitted.*
+
+#### Response `200 OK`
+```json
+{
+  "status": "success",
+  "message": "URL 'https://en.wikipedia.org/wiki/Artificial_intelligence' submitted successfully. Async ingestion process started.",
+  "url": "https://en.wikipedia.org/wiki/Artificial_intelligence"
+}
+```
+
+#### Response `400 Bad Request` (Invalid URL Format)
+```json
+{
+  "detail": "Invalid URL format. Must start with http:// or https://"
+}
+```
+
+---
+
+## 3. UI Component Architecture Specification
+
+To build a comprehensive UI for this application, structure the frontend with the following components:
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        RAG Application Header                          │
+│  [ Title ]                                  [ Status: Healthy ● ]     │
+├──────────────────────────────┬─────────────────────────────────────────┤
+│    Knowledge Base Panel      │             Chat Interface              │
+│                              │                                         │
+│ ┌──────────────────────────┐ │ ┌─────────────────────────────────────┐ │
+│ │ File Upload Dropzone     │ │ │ Chat History                        │ │
+│ └──────────────────────────┘ │ │                                     │ │
+│ ┌──────────────────────────┐ │ │  User: What is the main topic?      │ │
+│ │ URL Ingestion Bar        │ │ │  AI: The main topic is...           │ │
+│ └──────────────────────────┘ │ │      [Source: doc.pdf, Page 3]      │ │
+│ ┌──────────────────────────┐ │ └─────────────────────────────────────┘ │
+│ │ Ingested Files List      │ │ ┌─────────────────────────────────────┐ │
+│ │ - paper.pdf              │ │ │ Input: Type your question... [Send] │ │
+│ │ - https://site.com       │ │ └─────────────────────────────────────┘ │
+│ └──────────────────────────┘ │                                         │
+└──────────────────────────────┴─────────────────────────────────────────┘
+```
+
+### Key UI Features:
+1. **Source Management Drawer / Sidebar:**
+   - Drag-and-drop file uploader (`.pdf`, `.docx`, `.md`, `.txt`).
+   - URL input with submit button for web ingestion.
+   - Live list of ingested files/links fetched from `GET /api/files`.
+2. **Interactive RAG Chat Console:**
+   - Message stream view with distinct User and Assistant bubbles.
+   - Citation badge on AI answers displaying source `file_name` and `page_number`.
+   - Loading indicator for async LLM query processing.
+3. **Backend Status Indicator:**
+   - Header badge displaying health status polling `GET /`.
+
+
+=== RAG ASSISTANT LIGHT THEME HTML BODY ===
+
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-lg border-b border-tech bg-white docked full-width top-0 h-14 z-20 shrink-0">
+<div class="flex items-center gap-4">
+<span class="font-headline-sm text-headline-sm tracking-widest text-[#1A1A1A]">KNOWLEDGE_CORE</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-breathe"></div>
+<span class="font-mono-label text-mono-label text-[#6B7280]">Service healthy</span>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-[#6B7280] hover:text-primary transition-colors cursor-pointer text-sm">account_tree</span>
+<span class="material-symbols-outlined text-[#6B7280] hover:text-primary transition-colors cursor-pointer text-sm">memory</span>
+<span class="material-symbols-outlined text-[#6B7280] hover:text-primary transition-colors cursor-pointer text-sm">terminal</span>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="w-[30%] min-w-[280px] max-w-[320px] h-full border-r border-tech bg-[#F3F4F6] py-md px-md flex flex-col gap-6 overflow-y-auto z-10 shrink-0">
+<!-- Upload Dropzone -->
+<div class="border border-dashed border-tech bg-white rounded-xl flex flex-col items-center justify-center p-6 gap-3 cursor-pointer hover:bg-[#F8FAFC] transition-colors">
+<span class="material-symbols-outlined text-[#6B7280] text-2xl">upload_file</span>
+<span class="font-body-sm text-body-sm text-[#1A1A1A]">Drop files or click to browse</span>
+<div class="flex gap-2 font-mono-label text-[11px] text-[#6B7280]">
+<span>[.pdf]</span>
+<span>[.doc]</span>
+<span>[.txt]</span>
+</div>
+</div>
+<!-- URL Bar -->
+<div class="relative">
+<input class="w-full bg-white border border-tech rounded-xl px-3 py-2 font-mono-data text-mono-data text-[#1A1A1A] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-[#9CA3AF]" placeholder="Add URL source..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-[#9CA3AF] hover:text-primary">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Sources List -->
+<div class="flex flex-col gap-1">
+<h3 class="font-mono-label text-mono-label text-[#6B7280] mb-2 uppercase tracking-wider">Knowledge Base Sources</h3>
+<!-- Ingested -->
+<div class="flex items-center gap-3 p-2 border border-tech bg-white rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">description</span>
+<span class="font-mono-data text-mono-data text-[#1A1A1A] truncate flex-1">research_paper.pdf</span>
+<span class="material-symbols-outlined text-success text-[14px] text-[#4ADE80]">check_circle</span>
+</div>
+<!-- Ingesting -->
+<div class="flex items-center gap-3 p-2 border border-tech bg-white/50 rounded-xl opacity-80 relative overflow-hidden group shadow-sm mt-1">
+<div class="absolute inset-0 shimmer-bg animate-shimmer pointer-events-none"></div>
+<span class="material-symbols-outlined text-[#6B7280] text-sm relative z-10">text_snippet</span>
+<span class="font-mono-data text-mono-data text-[#1A1A1A] truncate flex-1 relative z-10">project_notes.txt</span>
+<span class="font-mono-label text-[10px] text-primary animate-pulse relative z-10">ingesting...</span>
+</div>
+<!-- Hover State -->
+<div class="flex items-center gap-3 p-2 border border-transparent hover:bg-white hover:border-tech hover:shadow-sm rounded-xl transition-all group cursor-pointer mt-1">
+<span class="material-symbols-outlined text-[#6B7280] text-sm">link</span>
+<span class="font-mono-data text-mono-data text-[#1A1A1A] truncate flex-1">https://docs.python.org/3/</span>
+<button class="opacity-0 group-hover:opacity-100 text-[#9CA3AF] hover:text-red-500 transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="mt-auto flex flex-col gap-1">
+<a class="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors text-primary font-bold" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="font-mono-label text-mono-label">Knowledge Base</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors text-[#6B7280]" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-mono-label text-mono-label">Threads</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors text-[#6B7280]" href="#">
+<span class="material-symbols-outlined">neurology</span>
+<span class="font-mono-label text-mono-label">Models</span>
+</a>
+<a class="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-colors text-[#6B7280]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-mono-label text-mono-label">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Chat Panel -->
+<main class="w-[70%] h-full flex flex-col relative bg-white">
+<!-- Chat Scroll Area -->
+<div class="flex-1 overflow-y-auto p-xl flex flex-col gap-8 pb-32">
+<!-- Interaction 1 -->
+<div class="flex flex-col gap-4 max-w-3xl mx-auto w-full">
+<!-- User Message -->
+<div class="self-end bg-[#F8FAFC] border border-tech rounded-xl rounded-tr-sm p-4 max-w-[80%] shadow-sm">
+<p class="font-body-lg text-body-lg text-[#1A1A1A]">What are the main findings in the uploaded document?</p>
+</div>
+<!-- AI Response -->
+<div class="self-start flex flex-col gap-2 max-w-[85%]">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[16px]">smart_toy</span>
+</div>
+<p class="font-body-lg text-body-lg text-[#1A1A1A] leading-relaxed pt-1">The document concludes that LLM augmentation improves accuracy by 40%.</p>
+</div>
+<div class="pl-11 flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 font-mono-label text-[11px] text-[#6B7280] bg-[#F1F5F9] border border-tech rounded-xl px-3 py-1.5 cursor-pointer hover:border-[#9CA3AF] transition-colors">
+<span class="material-symbols-outlined text-[12px]">description</span>
+                                research_paper.pdf · p.3
+                            </span>
+</div>
+</div>
+</div>
+<!-- Interaction 2 -->
+<div class="flex flex-col gap-4 max-w-3xl mx-auto w-full">
+<!-- User Message -->
+<div class="self-end bg-[#F8FAFC] border border-tech rounded-xl rounded-tr-sm p-4 max-w-[80%] shadow-sm">
+<p class="font-body-lg text-body-lg text-[#1A1A1A]">Summarize the weather in Tokyo.</p>
+</div>
+<!-- AI Response (No Context) -->
+<div class="self-start flex flex-col gap-2 max-w-[85%] pl-11 border-l-2 border-dashed border-tech ml-4 mt-2">
+<p class="font-body-lg text-body-lg text-[#6B7280] italic">Cannot answer the question because the provided content is irrelevant.</p>
+</div>
+</div>
+<!-- Loading State -->
+<div class="flex flex-col gap-4 max-w-3xl mx-auto w-full mt-4">
+<div class="self-start flex items-center gap-3 pl-1">
+<div class="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[16px] animate-spin">sync</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono-label text-mono-label text-[#6B7280]">Retrieving context</span>
+<span class="text-primary font-mono-data animate-blink">▊</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-white via-white to-transparent pt-12">
+<div class="max-w-3xl mx-auto relative shadow-md rounded-xl">
+<textarea class="w-full bg-white border border-tech rounded-xl pl-4 pr-14 py-4 font-mono-data text-mono-data text-[#1A1A1A] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none overflow-hidden shadow-sm" placeholder="Query knowledge core..." rows="1"></textarea>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white p-2.5 rounded-xl hover:bg-primary-container hover:text-[#1A1A1A] transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+

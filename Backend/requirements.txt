@@ -1,0 +1,12 @@
+pymupdf
+pdfplumber
+chromadb
+langchain-text-splitters
+markdown-it-py
+python-docx
+openai
+fastapi
+sqlalchemy
+trafilatura
+youtube_transcript_api
+ddgs

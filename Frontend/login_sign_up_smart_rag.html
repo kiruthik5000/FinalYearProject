@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Smart RAG - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#ffc16c",
+                      "status-success": "#4ADE80",
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+              },
+              "spacing": {
+                      "md": "16px",
+                      "xl": "40px",
+                      "gutter": "16px",
+                      "container-max": "1200px",
+                      "lg": "24px",
+                      "base": "4px",
+                      "xs": "4px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "mono-label": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "mono-data": [
+                              "JetBrains Mono"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "mono-label": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "mono-data": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .shimmer-bg {
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.02), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .breathe {
+            animation: breathe 3s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-[#fcfcfc] text-gray-900 font-body-md min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Atmospheric background gradient -->
+<div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at top right, rgba(255, 193, 108, 0.08) 0%, transparent 40%);"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full bg-[#fcfcfc] border-b border-gray-200 flex justify-between items-center px-lg py-sm z-50">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-gray-900">SMART RAG</span>
+<div class="flex items-center gap-2 ml-md px-sm py-1 bg-white border border-gray-200 rounded">
+<span class="w-2 h-2 rounded-full bg-status-success breathe"></span>
+<span class="font-mono-label text-mono-label text-gray-500">Service healthy</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<!-- Top Nav is suppressed as this is a linear transactional screen (Login) -->
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full flex items-center justify-center p-md mt-xl">
+<div class="w-full max-w-md bg-white border border-gray-200 p-xl flex flex-col gap-lg relative rounded-xl"><div class="absolute inset-0 pointer-events-none shimmer-bg opacity-50 rounded" style="mask-image: linear-gradient(to bottom, white, transparent);"></div><div class="text-center space-y-2 relative z-10"><h1 class="font-headline-lg text-headline-lg text-gray-900">Create your Smart RAG account</h1><p class="font-body-md text-body-md text-gray-500">Start building your knowledge base today</p></div><form class="space-y-lg relative z-10"><div class="space-y-2"><label class="block font-mono-label text-mono-label text-gray-700" for="full-name">Full Name</label><input class="w-full bg-white border border-gray-300 px-md py-sm font-body-md text-gray-900 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all rounded-xl" id="full-name" placeholder="John Doe" type="text"></div><div class="space-y-2"><label class="block font-mono-label text-mono-label text-gray-700" for="email">Email</label><input class="w-full bg-white border border-gray-300 px-md py-sm font-body-md text-gray-900 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all rounded-xl" id="email" placeholder="name@example.com" type="email"></div><div class="space-y-2"><label class="block font-mono-label text-mono-label text-gray-700" for="password">Password</label><input class="w-full bg-white border border-gray-300 px-md py-sm font-body-md text-gray-900 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all rounded-xl" id="password" placeholder="••••••••" type="password"></div><button class="w-full bg-primary-container text-gray-900 font-headline-sm text-headline-sm py-sm hover:bg-[#f9bb67] transition-colors flex items-center justify-center gap-2 rounded-xl" type="button">Create Account<span class="material-symbols-outlined text-[18px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person_add</span></button></form><div class="relative flex items-center py-sm z-10"><div class="flex-grow border-t border-gray-200"></div><span class="flex-shrink-0 mx-md font-mono-label text-mono-label text-gray-500">Or continue with</span><div class="flex-grow border-t border-gray-200"></div></div><button class="w-full bg-gray-50 border border-gray-200 text-gray-900 font-body-md text-body-md py-sm hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 relative z-10 rounded-xl" type="button"><span class="material-symbols-outlined text-[18px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">code</span>Continue with GitHub</button><p class="text-center font-body-sm text-body-sm text-gray-500 relative z-10">Already have an account? <a class="text-gray-900 hover:text-primary-container hover:underline transition-all" href="#">Sign in instead</a></p></div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full bg-transparent flex justify-between items-center px-lg py-md z-40">
+<span class="font-mono-label text-mono-label text-gray-500">v1.0.4-stable</span>
+<div class="flex gap-lg">
+<a class="font-mono-label text-mono-label text-gray-500 hover:text-gray-900 underline transition-all" href="#">System Status</a>
+<a class="font-mono-label text-mono-label text-gray-500 hover:text-gray-900 underline transition-all" href="#">Documentation</a>
+<a class="font-mono-label text-mono-label text-gray-500 hover:text-gray-900 underline transition-all" href="#">Security</a>
+</div>
+</footer>
+
+
+</body></html>
