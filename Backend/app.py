@@ -3,6 +3,8 @@ import asyncio
 from pathlib import Path
 from typing import Dict, Any
 
+from starlette.responses import StreamingResponse
+
 # Ensure BASE_DIR is in sys.path
 BASE_DIR = Path(__file__).resolve().parent
 if str(BASE_DIR) not in sys.path:
@@ -12,11 +14,10 @@ if str(BASE_DIR) not in sys.path:
 from starlette.concurrency import run_in_threadpool
 from fastapi import FastAPI, UploadFile, File, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from schemas.queryRequest import QueryRequest
-from schemas.urlRequest import UrlRequest
-from schemas.searchRequest import SearchRequest
+from schemas.schemas import UrlRequest, QueryRequest, SearchRequest
 from controller.query_controller import QueryController
 from controller.search_controller import SearchController
+from controller.pdf_controller import PDFController
 from config.Config import SOURCE_DIR
 from ingestion.load_from_source import ingest_async
 
@@ -36,6 +37,7 @@ app.add_middleware(
 
 conn = QueryController()
 search = SearchController()
+pdf_conn = PDFController()
 
 ALLOWED_EXTENSIONS = {"doc", "docx", "md", "txt", "text", "pdf"}
 
@@ -132,3 +134,18 @@ async def websearch(request: SearchRequest) -> Dict[str, Any]:
         "urls": urls,
         "response": result
     }
+
+@app.get("/api/source/get_pdf")
+async def getPdf(pdf_name: str, start_page: int, no_of_pages: int) -> StreamingResponse:
+    try:
+        output = pdf_conn.get_pdf(pdf_name, start_page)
+
+        return StreamingResponse(
+            output,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": "inline; filename=pages.pdf"
+            }
+        )
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))

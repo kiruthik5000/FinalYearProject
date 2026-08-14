@@ -87,4 +87,23 @@ export const webSearch = async (query) => {
   }
 };
 
+// Fetch and open source PDF in a new tab
+export const openSourcePdf = async (pdfName, startPage, noOfPages = 1) => {
+  try {
+    const url = `/api/source/get_pdf?pdf_name=${encodeURIComponent(pdfName)}&start_page=${startPage}&no_of_pages=${noOfPages}`;
+    const response = await api.get(url, { responseType: 'blob' });
+    const blob = new Blob([response.data], { type: 'application/pdf' });
+    const objectUrl = URL.createObjectURL(blob);
+    
+    // Open in new tab
+    window.open(objectUrl, '_blank');
+    
+    // Clean up after enough time for the browser to load it
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 10000);
+  } catch (error) {
+    console.error('Error fetching source PDF:', error);
+    throw error;
+  }
+};
+
 export default api;

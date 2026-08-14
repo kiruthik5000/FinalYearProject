@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { checkHealth, getIngestedFiles, sendChatQuery, uploadDocument, ingestWebsiteUrl, webSearch } from '../services/api';
+import { checkHealth, getIngestedFiles, sendChatQuery, uploadDocument, ingestWebsiteUrl, webSearch, openSourcePdf } from '../services/api';
 
 export default function Dashboard() {
   const [health, setHealth] = useState({ status: 'checking', message: 'Checking backend...' });
@@ -199,6 +199,20 @@ export default function Dashboard() {
       clearInterval(phaseInterval);
       setWebSearchingMsgId(null);
       setSearchPhase(0);
+    }
+  };
+
+  // Handle View PDF Source
+  const handleViewSource = async (fileName, pageNumber) => {
+    if (!fileName || !pageNumber) return;
+    
+    setUploadMessage({ type: 'info', text: `Opening ${fileName} (Page ${pageNumber})...` });
+    try {
+      // Mapping file_name -> pdf_name, page_number -> start_page, defaulting no_of_pages to 1
+      await openSourcePdf(fileName, pageNumber, 1);
+      setTimeout(() => setUploadMessage(null), 3000); // Clear success message after 3s
+    } catch (err) {
+      setUploadMessage({ type: 'error', text: 'Failed to load PDF source pages. Backend may be unreachable.' });
     }
   };
 
@@ -521,11 +535,23 @@ export default function Dashboard() {
                     {/* AI Source Citation Badge — only for RAG responses, not web search */}
                     {msg.sender === 'ai' && !msg.isWebSearch && msg.file_name && (
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100/70 border border-amber-200 rounded-full font-['JetBrains_Mono',monospace] text-[11px] text-amber-800">
-                          <span className="material-symbols-outlined text-xs">bookmark</span>
-                          <span>Source: <strong>{msg.file_name}</strong></span>
-                          {msg.page_number && <span className="opacity-70">· Page {msg.page_number}</span>}
-                        </span>
+                        {msg.file_name.toLowerCase().endsWith('.pdf') && msg.page_number ? (
+                          <button
+                            onClick={() => handleViewSource(msg.file_name, msg.page_number)}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-200 hover:border-amber-400 rounded-full font-['JetBrains_Mono',monospace] text-[11px] text-amber-800 transition-all cursor-pointer shadow-2xs hover:shadow-sm"
+                            title="Click to view source PDF"
+                          >
+                            <span className="material-symbols-outlined text-xs">picture_as_pdf</span>
+                            <span>Source: <strong>{msg.file_name}</strong></span>
+                            <span className="opacity-70">· Page {msg.page_number}</span>
+                          </button>
+                        ) : (
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100/70 border border-amber-200 rounded-full font-['JetBrains_Mono',monospace] text-[11px] text-amber-800">
+                            <span className="material-symbols-outlined text-xs">bookmark</span>
+                            <span>Source: <strong>{msg.file_name}</strong></span>
+                            {msg.page_number && <span className="opacity-70">· Page {msg.page_number}</span>}
+                          </span>
+                        )}
                       </div>
                     )}
 
