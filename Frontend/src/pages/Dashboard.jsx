@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { checkHealth, getIngestedFiles, sendChatQuery, uploadDocument, ingestWebsiteUrl, webSearch, openSourcePdf } from '../services/api';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function Dashboard() {
   const [health, setHealth] = useState({ status: 'checking', message: 'Checking backend...' });
@@ -422,22 +426,105 @@ export default function Dashboard() {
               </div>
             ) : (
               messages.map((msg) => (
-                <div key={msg.id} className={`flex gap-3 max-w-3xl animate-fade-in-up ${msg.sender === 'user' ? 'ml-auto flex-row-reverse' : 'mr-auto'}`}>
+                <div key={msg.id} className={`w-full max-w-4xl mx-auto flex gap-4 px-4 py-4 animate-fade-in-up ${
+                  msg.sender === 'user' ? 'flex-row-reverse' : ''
+                }`}>
                   {msg.sender === 'ai' && (
-                    <div className="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0 text-sm font-semibold shadow-xs">
-                      <span className="material-symbols-outlined text-base">smart_toy</span>
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center text-sm font-semibold shadow-xs">
+                        <span className="material-symbols-outlined text-base">smart_toy</span>
+                      </div>
                     </div>
                   )}
 
-                  <div className="flex flex-col gap-1.5">
-                    <div className={`p-4 rounded-2xl text-sm leading-relaxed shadow-2xs ${
-                      msg.sender === 'user'
-                        ? 'bg-slate-900 text-white rounded-tr-none'
-                        : msg.isFailed
-                        ? 'bg-rose-50 text-rose-800 border border-rose-200 rounded-tl-none'
-                        : 'bg-white text-slate-800 border border-slate-200 rounded-tl-none'
+                  <div className={`flex flex-col gap-2 min-w-0 ${msg.sender === 'user' ? 'max-w-[85%]' : 'flex-1'}`}>
+                    <div className={`text-[15px] leading-relaxed overflow-hidden ${
+                      msg.sender === 'user' 
+                        ? 'bg-slate-100 border border-slate-200 text-slate-800 px-5 py-3 rounded-3xl rounded-tr-sm shadow-sm' 
+                        : msg.isFailed ? 'text-rose-600' : 'text-slate-800'
                     }`}>
-                      {msg.text}
+                      {msg.sender === 'user' ? (
+                        msg.text
+                      ) : (
+                        <div className="flex flex-col gap-2">
+                          <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            components={{
+                              code({node, inline, className, children, ...props}) {
+                                const match = /language-(\w+)/.exec(className || '')
+                                const [copied, setCopied] = React.useState(false);
+
+                                const handleCopy = () => {
+                                  navigator.clipboard.writeText(String(children).replace(/\n$/, ''));
+                                  setCopied(true);
+                                  setTimeout(() => setCopied(false), 2000);
+                                };
+
+                                return !inline && match ? (
+                                  <div className="relative group my-3 rounded-xl overflow-hidden bg-slate-900 border border-slate-700 w-full max-w-full">
+                                    <div className="flex justify-between items-center px-4 py-1.5 bg-slate-800 border-b border-slate-700">
+                                      <span className="text-[11px] text-slate-400 font-['JetBrains_Mono',monospace] uppercase">{match[1]}</span>
+                                      <button 
+                                        onClick={handleCopy}
+                                        className="text-[11px] text-slate-400 hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
+                                      >
+                                        <span className="material-symbols-outlined text-[13px]">
+                                          {copied ? 'check' : 'content_copy'}
+                                        </span>
+                                        {copied ? 'Copied!' : 'Copy'}
+                                      </button>
+                                    </div>
+                                    <div className="overflow-x-auto">
+                                      <SyntaxHighlighter
+                                        style={atomDark}
+                                        language={match[1]}
+                                        PreTag="div"
+                                        customStyle={{ margin: 0, padding: '1rem', background: 'transparent', fontSize: '13px' }}
+                                        {...props}
+                                      >
+                                        {String(children).replace(/\n$/, '')}
+                                      </SyntaxHighlighter>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <code className="px-1.5 py-0.5 bg-slate-100 text-slate-800 border border-slate-200 rounded text-[0.85em] font-['JetBrains_Mono',monospace]" {...props}>
+                                    {children}
+                                  </code>
+                                )
+                              },
+                              table({node, ...props}) {
+                                return (
+                                  <div className="overflow-x-auto my-3 w-full max-w-full">
+                                    <table className="min-w-full divide-y divide-slate-200 border border-slate-200 rounded-lg text-xs" {...props} />
+                                  </div>
+                                )
+                              },
+                              thead({node, ...props}) {
+                                return <thead className="bg-slate-50" {...props} />
+                              },
+                              th({node, ...props}) {
+                                return <th className="px-3 py-2 font-semibold text-slate-700 text-left border-b border-slate-200" {...props} />
+                              },
+                              td({node, ...props}) {
+                                return <td className="px-3 py-2 border-t border-slate-200" {...props} />
+                              },
+                              a({node, ...props}) {
+                                return <a className="text-blue-600 hover:text-blue-800 underline underline-offset-2 break-all" target="_blank" rel="noopener noreferrer" {...props} />
+                              },
+                              h1({node, ...props}) { return <h1 className="text-lg font-bold text-slate-900 mt-4 mb-2" {...props} /> },
+                              h2({node, ...props}) { return <h2 className="text-base font-bold text-slate-900 mt-3 mb-2" {...props} /> },
+                              h3({node, ...props}) { return <h3 className="text-sm font-bold text-slate-900 mt-2 mb-1" {...props} /> },
+                              ul({node, ...props}) { return <ul className="list-disc pl-5 my-2 space-y-1" {...props} /> },
+                              ol({node, ...props}) { return <ol className="list-decimal pl-5 my-2 space-y-1" {...props} /> },
+                              li({node, ...props}) { return <li className="pl-1" {...props} /> },
+                              blockquote({node, ...props}) { return <blockquote className="border-l-4 border-slate-300 pl-3 py-1 my-2 text-slate-600 italic bg-slate-50 rounded-r-lg" {...props} /> },
+                              p({node, ...props}) { return <p className="my-2 first:mt-0 last:mb-0 break-words" {...props} /> }
+                            }}
+                          >
+                            {msg.text}
+                          </ReactMarkdown>
+                        </div>
+                      )}
                     </div>
 
                     {/* Web Search button for irrelevant responses */}
@@ -555,7 +642,7 @@ export default function Dashboard() {
                       </div>
                     )}
 
-                    <span className={`text-[10px] text-slate-400 px-1 ${msg.sender === 'user' ? 'text-right' : 'text-left'}`}>
+                    <span className={`text-[10px] text-slate-400 font-medium px-1 ${msg.sender === 'user' ? 'text-right' : 'text-left'}`}>
                       {msg.timestamp}
                     </span>
                   </div>
@@ -565,11 +652,13 @@ export default function Dashboard() {
 
             {/* Loading Indicator */}
             {loading && (
-              <div className="flex gap-3 max-w-xl mr-auto animate-fade-in-up">
-                <div className="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-base animate-spin">sync</span>
+              <div className="w-full max-w-4xl mx-auto flex gap-4 px-4 py-4 animate-fade-in-up">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0">
+                    <span className="material-symbols-outlined text-base animate-spin">sync</span>
+                  </div>
                 </div>
-                <div className="p-4 bg-white border border-slate-200 rounded-2xl rounded-tl-none flex items-center gap-3">
+                <div className="flex items-center gap-3 py-1.5 text-slate-800">
                   <div className="flex gap-1">
                     <span className="w-2 h-2 rounded-full bg-amber-400 animate-bounce"></span>
                     <span className="w-2 h-2 rounded-full bg-amber-500 animate-bounce [animation-delay:0.2s]"></span>
@@ -582,11 +671,13 @@ export default function Dashboard() {
 
             {/* Web Search Loading Indicator */}
             {webSearchingMsgId !== null && (
-              <div className="flex gap-3 max-w-xl mr-auto animate-fade-in-up">
-                <div className="w-8 h-8 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0 animate-pulse-glow">
-                  <span className="material-symbols-outlined text-base animate-orbit">travel_explore</span>
+              <div className="w-full max-w-4xl mx-auto flex gap-4 px-4 py-4 animate-fade-in-up">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0 animate-pulse-glow">
+                    <span className="material-symbols-outlined text-base animate-orbit">travel_explore</span>
+                  </div>
                 </div>
-                <div className="p-4 bg-white border border-blue-200 rounded-2xl rounded-tl-none flex flex-col gap-3 min-w-[280px]">
+                <div className="flex flex-col gap-3 min-w-[280px] py-1.5 text-slate-800">
                   {/* Animated status text */}
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1">

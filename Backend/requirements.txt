@@ -10,4 +10,4 @@ sqlalchemy
 trafilatura
 youtube_transcript_api
 ddgs
-pypd
+pypdf
