@@ -12,6 +12,17 @@ class QueryController:
     def __init__(self):
         self.db = ChromaStore()
         self.generator = Generator()
+        self.intent_dict = {
+            "explanation": ["explain", "describe", "elaborate"],
+            "comparison": ["compare", "difference between", "distinguish"],
+            "procedure": ["how to", "how do", "how does"],
+            "advantage_disadvantage": ["advantage" , "pros", "cons", "disadvantage"],
+            "definition": ["what is", "define", "definition"],
+            "summary": ["summarize", "summary of"]
+        }
+        self.retriver_dict = {
+            "explanation": 8,
+        }
 
     def get_files(self) -> Set[str]:
         """
@@ -34,7 +45,7 @@ class QueryController:
             logger.error(f"Error fetching files from database: {e}", exc_info=True)
             return set()
 
-    def _get_result(self, query_text: str, n_results: int = 5) -> List[Dict[str, Any]]:
+    def _get_result(self, query_text: str, query_analysis: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
         Queries the vector store for matching document chunks and returns formatted results.
         """
@@ -42,7 +53,8 @@ class QueryController:
             if not query_text or not query_text.strip():
                 return []
 
-            raw_results = self.db.query(query_text, n_results=n_results)
+            n_chunks = self.retriver_dict.get(query_analysis["intent"], 5)
+            raw_results = self.db.query(query_text, n_results=n_chunks)
             formatted_results = []
 
             if raw_results and "documents" in raw_results and raw_results["documents"]:
@@ -77,7 +89,8 @@ class QueryController:
         Retrieves matching chunks and refines the response using LLM.
         """
         try:
-            collected_data = self._get_result(query_text)
+            query_analysis = self._query_analyzer(query_text)
+            collected_data = self._get_result(query_text, query_analysis)
 
             if not collected_data:
                 return {
@@ -85,7 +98,7 @@ class QueryController:
                     "message": "No relevant document chunks found in database."
                 }
 
-            return self.generator.refine_with_llm(query_text, collected_data)
+            return self.generator.refine_with_llm(query_text, collected_data, query_analysis)
 
         except Exception as e:
             logger.error(f"Error generating answer for query '{query_text}': {e}", exc_info=True)
@@ -93,10 +106,62 @@ class QueryController:
                 "status": "failed",
                 "message": str(e)
             }
+    def _query_analyzer(self, query_text: str) -> Dict[str, Any]:
+        """
+        able to identify the nature of the query and advances the llm to be aware of the
+        question so it can provide the output result more efficiently
+
+        :param query_text:
+        :returns:
+        {
+        "intent": ["comparison", "definition", "explanation", "procedure", "advantages_disadvantages", "summary"],
+        "depth": ["concise", "moderate", "detailed"],
+        "example": ["required", "not required"]
+        }
+        """
+
+        intent = self._get_intent(query_text)
+
+        depth = self._get_depth(intent)
+
+        example = self._get_example(depth)
+
+        return {
+            "intent": intent,
+            "depth": depth,
+            "example": example
+        }
+
+    def _get_example(self, depth: str) -> str:
+        if depth in ["detailed", "moderate"]:
+            return "required"
+        return "not required"
+
+    def _get_depth(self, intent: str) -> str:
+        if intent == "definition":
+            return "consise"
+        elif intent in ["comparision", "explanation"]:
+            return "detailed"
+        else:
+            return "moderate"
+    def _get_intent(self, query: str) -> str:
+
+        for intent in self.intent_dict:
+            for keys in self.intent_dict[intent]:
+                if keys in query.lower():
+                    return intent
+        return "undefined"
+
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     q = QueryController()
-    print("Files in DB:", q.get_files())
-    print("Search Result Sample:", q._get_result("project details", n_results=2))
+    query = "Difference between good habits and bad habits"
+    analysis = q._query_analyzer(query)
+    print(analysis)
+    res = q._get_result(query, analysis)
+    print("--" * 50)
+    print(res)
+    print("--" * 50)
+    print(q.get_answer(query))
